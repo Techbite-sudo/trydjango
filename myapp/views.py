@@ -36,10 +36,20 @@ def register(request):
 
 def login(request):
     if request.method == "POST":
-        usernam
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = auth.authenticate(username=username, password=password)
+        if user is not None:
+            auth.login(request, user)
+            messages.success(request, "Successfully logged in")
+            return redirect("index")
+        else:
+            messages.error(request, "Invalid credentials")
+            return redirect("login")
+        
     return render(request, "login.html")
 
 def logout(request):
-    return render(request, "logout.html")
+    pass
     
 
