@@ -1,19 +1,21 @@
-
 {% load static %}
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static 'home.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'home.css' %}" />
     <title>Home Page</title>
-</head>
-<body>
+  </head>
+  <body>
+    {% for messsage in messages %}
+    <h1>{{message}}</h1>
+    {% endfor %} 
     <div class="container">
-        <h1>Welcome to the Home Page</h1>
-        <p>This is the content of your home page.</p>
-        <button id="logoutButton">Logout</button>
+      <h1>Welcome to the Home Page</h1>
+      <p>This is the content of your home page.</p>  
+      <a href="{% url 'logout' %}"><button id="logoutButton" name="logout"> Logout</button> </a>  
     </div>
-</body>
+  </body>
 </html>
