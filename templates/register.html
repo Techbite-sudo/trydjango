@@ -15,7 +15,7 @@
         <h1>{{message}}</h1>
         {% endfor %}
         <form method="POST" action="register" class="registration-form">
-            {{% csrf_token %}}
+            {% csrf_token %}
             <h1>Register</h1>
             <label for="username">Username:</label>
             <input type="text" id="username" name="username" required>
