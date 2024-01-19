@@ -50,6 +50,8 @@ def login(request):
     return render(request, "login.html")
 
 def logout(request):
-    pass
+    auth.logout(request)
+    messages.success(request, "Successfully logged out")
+    return redirect("index")
     
 
